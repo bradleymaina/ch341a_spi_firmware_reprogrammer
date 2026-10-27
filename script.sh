@@ -24,16 +24,13 @@ fi
 #compare  bak2.bin to bak3.bin
 cmp  ~/bios-firmware/bak2.bin  ~/bios-firmware/bak3.bin
 
-#if bak3 is not similar  to bak2 ....
-
-#if bak3.bin is similar to bak2.bin , erase the firmware
-flashrom -p ch341a_spi -E
-
-#collect confirmation message
-
-#write new firmware
-flashrom -p ch341a_spi -w #name of the file 
-
+if [ "$?" -eq 0 ]; then 
+    flashrom -p ch341a_spi -E
+    flashrom -p ch341a_spi -w 
+else
+    echo "Could not write new firmware!"
+    exit 1
+fi
 
 
 
