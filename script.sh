@@ -8,7 +8,7 @@ sudo flashrom -p ch341a_spi
 #Read the contents of the  bios chip at least 3 times
 
 sudo flashrom -p ch341a_spi -r ~/bios-firmware/bak1.bin
-sudo flashrom -p ch341_spi -r ~/bios-firmware/bak2.bin
+sudo flashrom -p ch341a_spi -r ~/bios-firmware/bak2.bin
  
 #compare  backup1 (bak1.bin) and backup2(bak2.bin) are similar
 diff ~/bios-firmware/bak1.bin ~/bios-firmware/bak2.bin
