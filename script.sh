@@ -1,5 +1,5 @@
 #!/bin/bash
-mkdir ~/bios-firmware
+mkdir -p  ~/bios-firmware
 
 # detect chip
 # This assumes the programmer in use is a ch341a
