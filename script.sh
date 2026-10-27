@@ -11,13 +11,13 @@ sudo flashrom -p ch341a_spi -r ~/bios-firmware/bak1.bin
 sudo flashrom -p ch341a_spi -r ~/bios-firmware/bak2.bin
  
 #compare  backup1 (bak1.bin) and backup2(bak2.bin) are similar
-diff ~/bios-firmware/bak1.bin ~/bios-firmware/bak2.bin
+cmp ~/bios-firmware/bak1.bin ~/bios-firmware/bak2.bin
 
 #if bak1.bin and bak2.bin are similar read the firmware one more time
 sudo flashrom -p ch341a_spi -r ~/bios-firmware/bak3.bin
 
 #compare  bak2.bin to bak3.bin
-diff ~/bios-firmware/bak2.bin  ~/bios-firmware/bak3.bin
+cmp  ~/bios-firmware/bak2.bin  ~/bios-firmware/bak3.bin
 
 #if bak3 is not similar  to bak2 ....
 
