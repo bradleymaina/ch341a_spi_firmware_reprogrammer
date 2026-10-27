@@ -18,6 +18,7 @@ if [ "$?" -eq  0 ]; then
     sudo flashrom -p ch341a_spi -r ~/bios-firmware/bak3.bin
 else
     echo "[ERROR] DUMPS ARE DIFFERENT!"
+    exit 1
 fi
 
 #compare  bak2.bin to bak3.bin
