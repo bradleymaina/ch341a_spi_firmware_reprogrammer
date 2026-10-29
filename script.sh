@@ -18,10 +18,10 @@ if [ ! -f "$BIOS_DUMP" ] ; then
 fi
 
 echo "==== ====Detecting chip ===== ===="
-# detect chip 
+
 sudo flashrom -p $PROGRAMMER || echo "Bios chip not detected! Reset clip" && exit 1
 
-#Read the contents of the  bios chip at least 3 times
+echo "==== ==== Reading chip contents ==== ===="
 
 sudo flashrom -p $PROGRAMMER -r ~/bios-firmware/bak1.bin
 sudo flashrom -p $PROGRAMMER -r ~/bios-firmware/bak2.bin
