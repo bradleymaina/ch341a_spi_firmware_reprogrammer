@@ -10,8 +10,14 @@ if [ $# -ne 1 ]; then
 fi
 
 BIOS_DUMP="$1"
-# detect chip
-# This assumes the programmer in use is a ch341a
+
+if [ ! -f "$BIOS_DUMP" ] ; then
+    echo "File does not exist!"
+    exit 1
+
+fi
+
+# detect chip 
 sudo flashrom -p $PROGRAMMER
 
 #Read the contents of the  bios chip at least 3 times
