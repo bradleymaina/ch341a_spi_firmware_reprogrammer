@@ -19,3 +19,18 @@ This is only customized for my operating system ie arch ...make sure to use the 
 ```bash
 sudo pacman -S flashrom 
 ```
+
+# WARNING
+This could  pottentially make you laptop not boot . Take it to a proffesional .
+
+# INSTALLATION
+1. Download the script 
+2. Make the script executable 
+```bash
+sudo chmod +x script.sh
+```
+3. Run the script as root
+```bash
+sudo ./script.sh
+```
+
