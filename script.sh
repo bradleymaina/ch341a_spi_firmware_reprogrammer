@@ -53,3 +53,14 @@ fi
 echo "==== =====  REREAD NEW FIRMWARE  ===== ===="
 sudo flashrom -p $PROGRAMMER  -r ~/bios-firmware/new-firmware || echo "Could not read new firmware " && exit1
 
+echo "==== ====  COMPARING BIOS-DUMP WITH NEWLY  FLASHED FIRMWARE ==== ===="
+cmp ~/bios-firmware/new-firmware  $BIOS-DUMP
+
+if [ $? -eq 0]; then
+    echo "Try to boot firmware"
+    exit 0
+else
+    echo "New firmware does not match target dump!"
+    exit 1
+fi
+
