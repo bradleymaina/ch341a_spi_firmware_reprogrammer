@@ -23,15 +23,15 @@ sudo flashrom -p $PROGRAMMER || echo "Bios chip not detected! Reset clip" && exi
 
 echo "==== ==== Reading chip contents ==== ===="
 
-sudo flashrom -p $PROGRAMMER -r ~/bios-firmware/bak1.bin
-sudo flashrom -p $PROGRAMMER -r ~/bios-firmware/bak2.bin
+sudo flashrom -p $PROGRAMMER -r ~/bios-firmware/bak1.bin || echo "Could not read chip contents" && exit 1
+sudo flashrom -p $PROGRAMMER -r ~/bios-firmware/bak2.bin || echo "Could not read chip contents" && exit 1
  
 #compare  backup1 (bak1.bin) and backup2(bak2.bin) are similar
 cmp ~/bios-firmware/bak1.bin ~/bios-firmware/bak2.bin
 
 if [ "$?" -eq  0 ]; then
 #if bak1.bin and bak2.bin are similar read the firmware one more time
-    sudo flashrom -p $PROGRAMMER -r ~/bios-firmware/bak3.bin
+    sudo flashrom -p $PROGRAMMER -r ~/bios-firmware/bak3.bin || echo "Could not read chip contents" && exit 1
 else
     echo "[ERROR] DUMPS ARE DIFFERENT!"
     exit 1
