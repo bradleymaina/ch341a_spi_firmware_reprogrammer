@@ -17,6 +17,7 @@ if [ ! -f "$BIOS_DUMP" ] ; then
 
 fi
 
+echo "==== ====Detecting chip ===== ===="
 # detect chip 
 sudo flashrom -p $PROGRAMMER || echo "Bios chip not detected! Reset clip" && exit 1
 
