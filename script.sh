@@ -42,7 +42,7 @@ cmp  ~/bios-firmware/bak2.bin  ~/bios-firmware/bak3.bin
 
 if [ "$?" -eq 0 ]; then 
     flashrom -p $PROGRAMMER -E || echo "Could not erase chip contents" && exit 1
-    flashrom -p $PROGRAMMER -w $BIOS_DUMP
+    flashrom -p $PROGRAMMER -w $BIOS_DUMP || echo "Could not write new firmware" && exit 1
 else
     echo "Could not write new firmware!"
     exit 1
