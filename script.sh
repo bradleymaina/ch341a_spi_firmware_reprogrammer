@@ -18,7 +18,7 @@ if [ ! -f "$BIOS_DUMP" ] ; then
 fi
 
 # detect chip 
-sudo flashrom -p $PROGRAMMER
+sudo flashrom -p $PROGRAMMER || echo "Bios chip not detected! Reset clip" && exit 1
 
 #Read the contents of the  bios chip at least 3 times
 
