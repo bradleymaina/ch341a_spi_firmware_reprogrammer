@@ -50,5 +50,6 @@ else
     exit 1
 fi
 
-
+echo "==== =====  REREAD NEW FIRMWARE  ===== ===="
+sudo flashrom -p $PROGRAMMER  -r ~/bios-firmware/new-firmware || echo "Could not read new firmware " && exit1
 
