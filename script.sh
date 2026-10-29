@@ -2,6 +2,14 @@
 mkdir -p  ~/bios-firmware
 
 PROGRAMMER=ch341a_spi
+
+if [ $# -ne 1 ]; then 
+    echo "Accepts only one argument!"
+    exit 1
+
+fi
+
+BIOS_DUMP="$1"
 # detect chip
 # This assumes the programmer in use is a ch341a
 sudo flashrom -p $PROGRAMMER
@@ -27,7 +35,7 @@ cmp  ~/bios-firmware/bak2.bin  ~/bios-firmware/bak3.bin
 
 if [ "$?" -eq 0 ]; then 
     flashrom -p $PROGRAMMER -E
-    flashrom -p $PROGRAMMER -w 
+    flashrom -p $PROGRAMMER -w $BIOS_DUMP
 else
     echo "Could not write new firmware!"
     exit 1
